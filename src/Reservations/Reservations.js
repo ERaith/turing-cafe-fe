@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../Card/Card";
+import './Reservations.css';
 
 const Reservations = ({ reservations }) => {
   const reservationCards = reservations.map(reservation => {
@@ -14,10 +15,9 @@ const Reservations = ({ reservations }) => {
   });
 
   return (
-    <>
-      <h2> Reservations go here!!!</h2>
+    <section>
       {reservationCards}
-    </>
+    </section>
   );
 };
 

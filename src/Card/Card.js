@@ -1,13 +1,14 @@
 import React from 'react';
+import './Card.css';
 
 const Card = ({ id, date,name,number,time}) => {
   return (
-    <section className='card'>
+    <article className='card'>
       <h3>{ name }</h3>
       <p>{ date }</p>
       <p>{ time }</p>
       <p>Number of guests: { number }</p>
-    </section>
+    </article>
   )
 }
 
