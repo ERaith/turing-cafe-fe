@@ -18,11 +18,26 @@ class App extends Component {
       .catch(err => console.error(err.message));
   }
 
-
   makeNewReservation = newReservationData => {
-    this.setState({
-      reservations: [...this.state.reservations, newReservationData]
-    });
+    let updatedReservation;
+    newReservationData.number = parseInt(newReservationData.number);
+    fetch("http://localhost:3001/api/v1/reservations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: newReservationData.name,
+        date: newReservationData.date,
+        time: newReservationData.time,
+        number: newReservationData.number
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        newReservationData.id = data.id;
+      })
+      this.setState({ reservations:[...this.state.reservations, newReservationData] });
   };
 
   render() {
