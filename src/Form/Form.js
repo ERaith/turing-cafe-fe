@@ -8,18 +8,19 @@ class Form extends React.Component {
       name: "",
       date: "",
       time: "",
-      numberOfGuests: 0
+      number: 0,
+      id:0,
     };
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
   resetInputs = () => {
-    this.setState({ name: "", date: "", time: "", numberOfGuests: 0, id: "" });
+    this.setState({ name: "", date: "", time: "", number: 0, id: "" });
   };
   submitReservation = event => {
     event.preventDefault();
-    let newReservationData = { ...this.state, id: Date.now() };
+    let newReservationData = { ...this.state };
     this.props.makeNewReservation(newReservationData);
     this.resetInputs();
   };
@@ -50,8 +51,8 @@ class Form extends React.Component {
         <input
           type="number"
           placeholder="Number of Guests"
-          value={this.state.numberOfGuests}
-          name="numberOfGuests"
+          value={this.state.number}
+          name="number"
           onChange={this.handleChange}
         />
         <button aria-label = 'Submit Reservation' onClick={this.submitReservation}> Make Reservation</button>
