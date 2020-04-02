@@ -54,7 +54,7 @@ class Form extends React.Component {
           name="numberOfGuests"
           onChange={this.handleChange}
         />
-        <button onClick={this.submitReservation}> Make Reservation</button>
+        <button aria-label = 'Submit Reservation' onClick={this.submitReservation}> Make Reservation</button>
       </form>
     );
   }
